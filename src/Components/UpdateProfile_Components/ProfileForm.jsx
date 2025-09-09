@@ -10,7 +10,7 @@ const ProfileForm = ({userData, refetch}) => {
             gender: userData.gender,
             age: userData.age,
             country: userData.country,
-            profession: userData.profession,
+            profession: userData.profession || "",
           });
 
     const [updateMe, { isLoading }] = useUpdateMeMutation();
@@ -95,8 +95,8 @@ const ProfileForm = ({userData, refetch}) => {
                 onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500"
             >
-                <option value="" disabled>
-                    Select country
+                <option value="Not provided" disabled>
+                    {formData.country || "Select country"}
                 </option>
                 <option value="Bangladesh">Bangladesh</option>
                 <option value="India">India</option>
@@ -125,7 +125,7 @@ const ProfileForm = ({userData, refetch}) => {
                 className="w-full px-4 py-2 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-500"
             >
                 <option value="" disabled>
-                {userData.profession || "Select profession"}
+                    {formData.profession || "Select profession"}
                 </option>
                 {[
                     "Doctor",
