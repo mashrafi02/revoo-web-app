@@ -55,7 +55,7 @@ function App() {
           backgroundImage: `url(${posterUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll",
         }}
       />
 

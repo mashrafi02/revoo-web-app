@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 
-const MovieCard = ({ movie, width='240px' }) => {
+const MovieCard = ({ movie }) => {
   const {
     poster_path,
     title,
@@ -13,7 +13,7 @@ const MovieCard = ({ movie, width='240px' }) => {
     : "https://via.placeholder.com/500x750?text=No+Image";
 
   return (
-    <div className="bg-gray-900/80 backdrop-blur-xs rounded-2xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300" style={{width}}>
+    <div className="w-[260px] md:w-[240px] bg-gray-900/80 backdrop-blur-xs rounded-2xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
       {/* Poster */}
       <img
         src={posterUrl}
