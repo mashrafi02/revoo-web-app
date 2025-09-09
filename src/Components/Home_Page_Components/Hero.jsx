@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { setCurrentSearch } from '../../features/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { IoSearchSharp } from "react-icons/io5";
+
 
 const Hero = () => {
 
@@ -27,11 +29,11 @@ const Hero = () => {
 
   return (
     <div>
-        <div className="relative z-10 px-6 py-30 flex flex-col items-center text-center">
+        <div className="relative z-10 px-6 pt-30 pb-20 sm:py-30 flex flex-col items-center text-center">
 
         <form
             onSubmit={handleSubmit}
-            className="w-[60%] mx-auto bg-gray-900/80 backdrop-blur-xs p-4 rounded-2xl shadow-xl flex items-center justify-between gap-4"
+            className="w-[95%] sm:w-[80%] md:w-[60%] mx-auto mt-18 bg-gray-900/80 backdrop-blur-xs p-1 sm:p-4 rounded-2xl shadow-xl flex items-center justify-between gap-1 sm:gap-4"
             >
             <input
                 type="text"
@@ -43,13 +45,19 @@ const Hero = () => {
             />
             <button
                 type="submit"
-                className="px-6 py-3 bg-red-400 font-semibold text-white rounded-lg hover:bg-gray-600 transition cursor-pointer"
+                className="hidden sm:hidden md:inline-block px-6 py-3 bg-red-400 font-semibold text-white rounded-lg hover:bg-gray-600 transition cursor-pointer"
             >
                 Search
             </button>
+            <button
+                type="submit"
+                className="md:hidden px-2 sm:px-4 py-3 bg-red-400 font-semibold text-white rounded-lg hover:bg-gray-600 transition cursor-pointer"
+            >
+                <IoSearchSharp className='font-bold text-xl'/>
+            </button>
         </form>
 
-            <h1 className="text-7xl font-bold leading-tight mt-26">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mt-14 sm:mt-26">
                 Discover & Review <span className="text-sky-400">Movies</span>
             </h1>
 

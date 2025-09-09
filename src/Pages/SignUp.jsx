@@ -44,10 +44,10 @@ function SignUp() {
 
   return (
 
-    <div className='pt-16'>
+    <div className='pt-16 px-2 md:px-0'>
         <form 
             onSubmit={handleSubmit} 
-            className="max-w-md mx-auto pt-12 bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl space-y-5"
+            className="max-w-md mx-auto pt-12 bg-gray-900/80 backdrop-blur-sm p-4 md:p-8 rounded-2xl shadow-xl space-y-5"
             >
             <h2 className="text-2xl font-bold text-center text-white">Create an Account</h2>
 

@@ -56,7 +56,7 @@ const PublicProfile = () => {
                 className="bg-gray-900/70 p-6 rounded-xl shadow-md hover:shadow-xl transition"
               >
                 <Link to={`/movie/${review.movieId}`}>
-                    <h3 className="text-xl font-bold">{review.movieName}</h3>
+                    <h3 className="text-xl text-green-400 font-bold">{review.movieName}</h3>
                 </Link>
                 <p className="text-gray-400 text-sm mt-1">
                   Posted on {new Date(review.createdAt).toLocaleDateString()}

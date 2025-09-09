@@ -13,7 +13,7 @@ function About() {
           About Our App
         </h1>
         <p className="text-white leading-relaxed mb-6">
-          Welcome to <span className="font-semibold">MovieHub</span>, a place
+          Welcome to <span className="font-semibold">Revoo</span>, a place
           where movie lovers can discover, review, and share their thoughts on
           films from around the world. Our goal is to connect people through the
           stories that inspire, entertain, and challenge us.
@@ -22,7 +22,7 @@ function About() {
         <h2 className="text-2xl font-semibold text-white mb-3">
           What We Offer
         </h2>
-        <ul className="list-disc list-inside text-white space-y-2 mb-6">
+        <ul className="md:list-disc md:list-inside text-white space-y-2 mb-6">
           <li>Browse movies and discover hidden gems</li>
           <li>Read and write honest reviews</li>
           <li>Like and interact with other users’ opinions</li>

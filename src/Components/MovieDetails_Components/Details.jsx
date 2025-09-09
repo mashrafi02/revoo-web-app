@@ -50,7 +50,7 @@ const Details = ({movieId, movie, setIsOpenModal, refetch}) => {
     };
 
   return (
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row gap-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-4 sm:py-16 flex flex-col lg:flex-row gap-10">
         {/* Poster */}
         <div className="flex-shrink-0 w-full lg:w-1/3">
           <img
@@ -96,7 +96,7 @@ const Details = ({movieId, movie, setIsOpenModal, refetch}) => {
           </div>
 
           {/* Homepage Button */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-4 mt-6">
             {movie.homepage && (
               <a
                 href={movie.homepage}
@@ -124,9 +124,9 @@ const Details = ({movieId, movie, setIsOpenModal, refetch}) => {
           </div>
 
           {/* Review Form */}
-          <div className="mt-10 bg-gray-900/60 p-6 rounded-2xl shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">Leave a Review</h3>
-            <form onSubmit={handleSubmitReview} className="space-y-4">
+          <div className="mt-10 bg-gray-900/60 p-2 md:p-6 rounded-2xl shadow-lg">
+            <h3 className=" text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Leave a Review</h3>
+            <form onSubmit={handleSubmitReview} className="space-y-2 sm:space-y-4">
               <textarea
                 className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-red-500"
                 rows="4"
@@ -149,7 +149,7 @@ const Details = ({movieId, movie, setIsOpenModal, refetch}) => {
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[9999]">
             <button
               onClick={onClose}
-              className="absolute top-18 right-10 font-bold text-white hover:text-gray-500 text-5xl cursor-pointer"
+              className="absolute top-3 md:top-18 right-10 font-bold text-white hover:text-gray-500 text-5xl cursor-pointer z-50"
             >
               &times;
             </button>

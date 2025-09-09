@@ -1,12 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useToggleReviewLikeMutation, useDeleteReviewMutation, useUpdateReviewMutation } from '../../services/movieApi';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser } from '../../features/authSlice';
 import { Link } from 'react-router-dom';
 
 const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}) => {
 
     const user = useSelector(state => state.auth.user);
+    const dispatch = useDispatch();
     
     const[togglRevieLike] = useToggleReviewLikeMutation();
     const[deleteReview] = useDeleteReviewMutation();
@@ -29,6 +31,22 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
                                   review,
                                   reviewerUsername}).unwrap();
             refetch();
+
+            const liked = user?.likedReviews.some(el => el.reviewId === reviewId);
+            let updatedUser;
+
+            if (liked) {
+                updatedUser = {
+                    ...user, 
+                    likedReviews : user.likedReviews.filter(rev => rev.reviewId !== reviewId)
+                }
+            }else{
+                updatedUser = {
+                    ...user,
+                    likedReviews: [...user.likedReviews, { reviewId }]
+                  };
+            }
+            dispatch(setUser(updatedUser))
         }catch(err){
             console.error(err)
         }
@@ -54,8 +72,8 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
       };
 
   return (
-    <div className='max-w-7xl mx-auto relative z-10 py-10'>
-        <h3 className='text-2xl font-bold text-white pb-10'>Reviews From Our Users</h3>
+    <div className='max-w-7xl mx-auto relative z-10 px-2 md:px-0 py-10'>
+        <h3 className='text-2xl px-2 md:px-0 font-bold text-white pb-10'>Reviews From Our Users</h3>
         {
             data?.reviews.map((review,index) => (
                 <div key={index} className='w-full bg-gray-900/70 text-white p-4 rounded-2xl shadow-md mb-4'>
@@ -88,17 +106,20 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
                         <div className="flex items-center gap-4">
                             <button
                                 onClick={() => handleLike(review.reviewId, review.review, review.username)}
-                                className="flex items-center gap-1 hover:text-blue-400 font-semibold text-white px-6 py-2 bg-blue-600 rounded-lg hover:bg-gray-700 transition cursor-pointer"
-                            >
+                                className={`flex items-center gap-1 font-semibold text-white px-2 md:px-6 py-2 rounded-lg transition cursor-pointer 
+                                    ${user?.likedReviews.some(el => el.reviewId === review.reviewId) 
+                                    ? "bg-cyan-500 hover:bg-cyan-600" 
+                                    : "bg-blue-600 hover:bg-gray-700"
+                                    }`}
+                                >
                                 👍 Like {review.likeCount}
                             </button>
-
                             {user?.username === review.username && (
                                 <>
                                     {editingReviewId === review.reviewId ? (
                                         <button
                                             onClick={() => handleEdit(review.username, review.reviewId, editedText)}
-                                            className="hover:text-green-400 font-semibold text-white px-6 py-2 bg-green-600 rounded-lg hover:bg-gray-700 transition cursor-pointer"
+                                            className="hover:text-green-400 font-semibold text-white px-2 md:px-6 py-2 bg-green-600 rounded-lg hover:bg-gray-700 transition cursor-pointer"
                                             >
                                             Save
                                         </button>
@@ -108,7 +129,7 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
                                                 setEditingReviewId(review.reviewId);
                                                 setEditedText(review.review);
                                             }}
-                                            className="hover:text-yellow-400 font-semibold text-white px-6 py-2 bg-yellow-600 rounded-lg hover:bg-gray-700 transition cursor-pointer"
+                                            className="hover:text-yellow-400 font-semibold text-white px-4 md:px-6 py-2 bg-yellow-600 rounded-lg hover:bg-gray-700 transition cursor-pointer"
                                             >
                                             Edit
                                         </button>
@@ -116,7 +137,7 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
 
                                     <button
                                         onClick={() => handleDelete(review.reviewId, review.username)}
-                                        className="hover:text-red-400 font-semibold text-white px-6 py-2 bg-red-400 rounded-lg hover:bg-gray-700 transition cursor-pointer"
+                                        className="hover:text-red-400 font-semibold text-white px-3 md:px-6 py-2 bg-red-400 rounded-lg hover:bg-gray-700 transition cursor-pointer"
                                     >
                                         Delete
                                     </button>

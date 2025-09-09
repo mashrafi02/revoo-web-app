@@ -45,7 +45,7 @@ function NavbarPrivateProf() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-white">
-          Logo
+          <img src="/images/Revoo.png" alt="app-logo" className="w-[100px]" />
         </Link>
 
         {
@@ -77,24 +77,24 @@ function NavbarPrivateProf() {
       
                   {/* Dropdown Menu */}
                   {open && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden animate-fadeIn">
+                    <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg overflow-hidden animate-fadeIn">
                         <Link
                           to={`/${user.username}`}
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                          className="block px-4 py-2 text-white hover:text-green-400 transition"
                           onClick={() => setOpen(false)}
                         >
                           My Profile
                         </Link>
                         <Link
                           to={`/update-profile/${user.username}`}
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                          className="block px-4 py-2 text-white hover:text-green-400 transition"
                           onClick={() => setOpen(false)}
                         >
                           Update Profile
                         </Link>
                         <button
                           onClick={handleLogout}
-                          className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                          className="block px-4 py-2 text-white hover:text-green-400 transition cursor-pointer"
                         >
                           Log Out
                         </button>

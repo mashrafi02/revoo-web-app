@@ -50,7 +50,7 @@ const SecurityTab = () => {
 
 
   return (
-    <div className="bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl space-y-8">
+    <div className="sm:w-[70%] sm:mx-auto bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl space-y-8">
       {/* Change Password Section */}
       <div>
         <h3 className="text-xl font-bold mb-4 text-red-400">Change Password</h3>

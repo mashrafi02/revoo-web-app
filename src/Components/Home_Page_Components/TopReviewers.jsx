@@ -16,9 +16,9 @@ const TopReviewers = () => {
 
   return (
     <div className="max-w-7xl mx-auto pt-16 pb-34 text-white relative z-10">
-      <h2 className="text-5xl font-bold text-center mb-16">Top Reviewers</h2>
+      <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">Top Reviewers</h2>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 p-2 sm:p-4 md:p-0">
         {users.map((user, index) => (
           <div
             key={index}
@@ -65,10 +65,10 @@ const TopReviewers = () => {
               <p className="text-gray-300 italic">
                 "{user.bestLikedReview.review}"
               </p>
-              <div className="flex justify-between text-gray-400 text-sm">
+              <div className="flex flex-wrap justify-between text-gray-400 text-sm">
                 <Link to={`/movie/${user.bestLikedReview.movieId}`}>
                   <span className="text-yellow-400 font-semibold">
-                    Movie: {user.bestLikedReview.movieName || "Not Found"}
+                    <span className="text-green-400">Movie:</span> {user.bestLikedReview.movieName || "Not Found"}
                   </span>
                 </Link>
                 <span>Likes: {user.bestLikedReview.likeCount}</span>

@@ -13,7 +13,7 @@ const Profile = ({user, refetch}) => {
     const [activeTab, setActiveTab] = useState("reviews");
 
   return (
-    <div className="max-w-5xl mx-auto pt-24 pb-10 text-white relative z-10">
+    <div className="max-w-5xl mx-auto px-4 md:px-0 pt-24 pb-10 text-white relative z-10">
       {/* Profile Header */}
       <div className="bg-gray-900/80 p-6 rounded-2xl shadow-xl mb-8 flex items-center gap-6">
         <img

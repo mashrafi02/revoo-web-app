@@ -23,12 +23,12 @@ const MovieTrailers = ({movieId}) => {
     }
 
   return (
-    <div className="w-[80%] mx-auto py-10 px-4 text-white relative z-50">
-      <h2 className="text-3xl font-bold mb-6">Watch Trailers</h2>
+    <div className="w-[95%] sm:w-[80%] mx-auto py-10 px-4 text-white relative z-10">
+      <h2 className="hidden md:block text-3xl font-bold mb-6">Watch Trailers</h2>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-6">
         {/* Left Section (Trailer List) */}
-        <div className="w-1/4 bg-gray-900/80 rounded-xl shadow-lg p-4 flex flex-col gap-3">
+        <div className="w-full md:w-1/4  bg-gray-900/80 rounded-xl shadow-lg p-4 flex flex-col gap-3">
           <h3 className="text-lg font-semibold text-yellow-400 mb-2">
             Available Languages
           </h3>
@@ -50,15 +50,15 @@ const MovieTrailers = ({movieId}) => {
         {/* Right Section (Iframe) */}
         <div className="flex-1 bg-gray-900/80 rounded-xl shadow-lg p-4">
           {selectedTrailer ? (
-            <iframe
-              src={selectedTrailer.replace("watch?v=", "embed/")}
-              title="Movie Trailer"
-              width="100%"
-              height="500"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-xl shadow-md"
-            ></iframe>
+            <div className="w-full rounded-xl overflow-hidden shadow-md">
+              <iframe
+                src={selectedTrailer.replace("watch?v=", "embed/")}
+                title="Movie Trailer"
+                className="w-full h-auto min-h-[180px] sm:min-h-[200px] md:min-h-[320px] lg:min-h-[400px] max-h-[70vh]"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           ) : (
             <p className="text-gray-400">Select a trailer to watch</p>
           )}

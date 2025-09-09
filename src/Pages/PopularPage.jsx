@@ -107,7 +107,7 @@ const PopularPage = () => {
       </div>
 
       {/* Movie Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid justify-center justify-self-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {movies.map((movie) => (
           <Link to={`/movie/${movie.id}`} key={movie.id}>
               <MovieCard movie={movie} />

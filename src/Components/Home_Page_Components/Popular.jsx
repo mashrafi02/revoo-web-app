@@ -12,11 +12,11 @@ const Popular = () => {
     if (isError) return <p className="text-center text-blue-800">Failed to fetch movies</p>;
 
   return (
-    <div className='max-w-7xl mx-auto text-center relative z-10 mb-24'>
-        <h3 className='text-5xl font-bold leading-tight mb-16'>
+    <div className='max-w-7xl mx-auto text-center relative z-10 mb-10 sm:mb-12 md:mb-24'>
+        <h3 className='text-4xl sm:text-5xl font-bold leading-tight mb-16'>
             What's Popular Today
         </h3>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4 justify-center'>
             {
                 movies.map(movie => (
                     <Link to={`/movie/${movie.id}`} key={movie.id}>
