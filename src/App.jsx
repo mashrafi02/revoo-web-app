@@ -50,12 +50,11 @@ function App() {
     <div className="relative min-h-screen text-white">
 
       <div
-        className="fixed inset-0 -z-10 bg-gray-900"
+        className="fixed inset-0 -z-10 bg-gray-900 bg-scroll md:bg-fixed"
         style={{
           backgroundImage: `url(${posterUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll",
         }}
       />
 
@@ -65,8 +64,6 @@ function App() {
         <RouterProvider router={router} />
       </PersistLogin>
     </div>
-
-    
   )
 }
 
