@@ -26,7 +26,7 @@ const Reviews = ({ data, movieData, isLoading, isError, setIsOpenModal, refetch}
         if(user === null) return setIsOpenModal(true);
         try{
             await togglRevieLike({reviewId, 
-                                  movieId:movieData.movieId, 
+                                  movieId:movieData.id, 
                                   movieName:movieData.title, 
                                   review,
                                   reviewerUsername}).unwrap();
