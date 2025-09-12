@@ -19,7 +19,7 @@ const EditProfileTab = ({avatars, userData, refetch}) => {
           <div className="flex flex-col items-center mb-6">
             <div className="relative w-32 h-32">
               <img
-                src={`${import.meta.env.VITE_SERVER_URL}${userData.avatar}`}
+                src={`${import.meta.env.VITE_SERVER_URL}${userData?.avatar}`}
                 alt={userData.name}
                 className="w-32 h-32 rounded-full object-cover border-4 border-gray-700"
               />

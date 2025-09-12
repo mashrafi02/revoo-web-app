@@ -9,8 +9,8 @@ const ProfileForm = ({userData, refetch}) => {
             email: userData.email,
             gender: userData.gender,
             age: userData.age,
-            country: userData.country,
-            profession: userData.profession || "",
+            country: userData?.country,
+            profession: userData?.profession || "",
           });
 
     const [updateMe, { isLoading }] = useUpdateMeMutation();
