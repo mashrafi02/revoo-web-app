@@ -22,11 +22,11 @@ const Profile = ({user, refetch}) => {
           className="w-24 h-24 rounded-full object-cover border-2 border-gray-700"
         />
         <div>
-          <h2 className="text-3xl font-bold">{user.name}</h2>
-          <p className="text-gray-400">@{user.username}</p>
-          <p className="text-gray-400 text-sm">Age: {user.age}</p>
-          <p className="text-gray-400 text-sm">{user.profession}</p>
-          <p className="text-gray-400 text-sm">Country: {user.country}</p>
+          <h2 className="text-3xl font-bold">{user?.name}</h2>
+          <p className="text-gray-400">@{user?.username}</p>
+          <p className="text-gray-400 text-sm">Age: {user?.age}</p>
+          <p className="text-gray-400 text-sm">{user?.profession}</p>
+          <p className="text-gray-400 text-sm">Country: {user?.country}</p>
         </div>
       </div>
 
@@ -69,8 +69,8 @@ const Profile = ({user, refetch}) => {
         {/* Reviews */}
         {activeTab === "reviews" && (
           <div className="grid gap-6">
-            {user.reviews.length > 0 ? (
-              user.reviews.map((review) => (
+            {user?.reviews.length > 0 ? (
+              user?.reviews.map((review) => (
                 <div
                   key={review._id}
                   className="bg-gray-900/70 p-4 rounded-xl shadow"
@@ -94,12 +94,12 @@ const Profile = ({user, refetch}) => {
 
         {/* Liked Movies */}
         {activeTab === "likedMovies" && (
-          <LikedMoviesTab likedMovies={user.likedMovies}/>
+          <LikedMoviesTab likedMovies={user?.likedMovies}/>
         )}
 
         {/* Liked Reviews */}
         {activeTab === "likedReviews" && (
-          <LikedReviewsTab likedReviews={user.likedReviews}/>
+          <LikedReviewsTab likedReviews={user?.likedReviews}/>
         )}
       </div>
     </div>
