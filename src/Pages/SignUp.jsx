@@ -25,8 +25,6 @@ function SignUp() {
     }
   }, [user, navigate]);
 
-  if(isError) console.log(isError.data?.message)
-
   const dispatch = useDispatch();
 
   async function handleSubmit(e) {
@@ -34,7 +32,7 @@ function SignUp() {
     try {
         const userData = await signUp(form).unwrap();
         dispatch(setUser(userData.data.user));
-        setForm({...form, name: '', age:'', email: '', password: '', confirmPassword: ''})
+        setForm({name: '', age:'', email: '', password: '', confirmPassword: ''})
         setError(null);
         navigate(`/${userData.data.user.username}`)
     } catch (err) {
